@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CustomerController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PassportAuthController;
@@ -20,6 +21,6 @@ Route::post('register', [PassportAuthController::class, 'register']);
 Route::post('login', [PassportAuthController::class, 'login']);
 
 Route::middleware('auth:api')->group(function () {
-    Route::resource('posts', PostController::class);
+    Route::resource('customers', CustomerController::class);
     Route::get('logout', [PassportAuthController::class, 'logout']);
 });
