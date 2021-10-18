@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClientController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -24,5 +25,6 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/customers', [App\Http\Controllers\CustomerDatatableController::class, 'index'])->name('customers.index');
+    Route::get('getClient', [ClientController::class, 'index'])->name('getClient');
 });
 
